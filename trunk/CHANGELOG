@@ -1,3 +1,9 @@
+Version 0.3RC3
+18-April-2009
+
+- fixed: typo in jsbuilder config would not save the ext-ux-youtubeplayer-all.js
+under the given naming conventions
+
 Version 0.3RC2
 18-April-2009
 
