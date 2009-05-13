@@ -1,3 +1,11 @@
+Version 0.3RC4
+13-May-2009
+
+ - fixed: fixed a problem where the onYoutubePlayerReady method would be called
+twice due to initializing the ratio mode; delegated style for ratio mode to css
+files
+ - enhancement: minor doc changes
+
 Version 0.3RC3
 18-April-2009
 
