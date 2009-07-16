@@ -1,3 +1,9 @@
+Version 0.3RC5
+17-July-2009
+ - enhancement: added compatibility for Ext JS 3.0.0
+ - enhancement: replaced jsb build process with yuicompressor, including batch file
+ - enhancement: added build-file ext-ux-youtubeplayer-all-debug.js
+
 Version 0.3RC4
 13-May-2009
 

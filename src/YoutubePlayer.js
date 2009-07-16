@@ -139,9 +139,10 @@ Ext.ux.YoutubePlayer = Ext.extend(Ext.FlashComponent, {
 
         Ext.apply(this, {
             ratioMode : this.ratioMode || 'normal',
+            id        : this.playerId,
             swfId     : this.playerId,
             style     : this.ratioMode == 'strict' ? 'position:relative'
-                                                   : 'position:normal'
+                                                   : 'position:static'
         });
 
         Ext.applyIf(this, {
@@ -161,7 +162,7 @@ Ext.ux.YoutubePlayer = Ext.extend(Ext.FlashComponent, {
         if (!Ext.ux.YoutubePlayer.Players) {
             Ext.ux.YoutubePlayer.Players = [];
         }
-        Ext.ux.YoutubePlayer.Players[this.playerId] = this.id;
+        Ext.ux.YoutubePlayer.Players[this.playerId] = this;
     },
 
     /**
@@ -169,12 +170,11 @@ Ext.ux.YoutubePlayer = Ext.extend(Ext.FlashComponent, {
      * fully initialized.
      * This method is API reserved.
      *
-     * @param {HtmlElement} player
      * @private
      */
-    _setPlayer : function(player)
+    _initPlayer : function()
     {
-        this.player = player;
+        this.player = this.swf;
     },
 
     /**
@@ -604,13 +604,12 @@ Ext.ux.YoutubePlayer = Ext.extend(Ext.FlashComponent, {
 
 // create a sequence if onYouTubePlayerReady is already available
 var _onYouTubePlayerReady = function(playerId) {
-    var cmpId = Ext.ux.YoutubePlayer.Players[playerId];
-    if (cmpId) {
-        var panel  = Ext.getCmp(cmpId);
+    var panel = Ext.ux.YoutubePlayer.Players[playerId];
+    if (panel) {
         var player = document.getElementById(playerId);
-        panel._setPlayer(player);
-        player.addEventListener('onStateChange', "Ext.getCmp('"+panel.id+"')._delegateStateEvent");
-        player.addEventListener('onError', "Ext.getCmp('"+panel.id+"')._delegateErrorEvent");
+        panel._initPlayer();
+        player.addEventListener('onStateChange', "Ext.ux.YoutubePlayer.Players['"+playerId+"']._delegateStateEvent");
+        player.addEventListener('onError', "Ext.ux.YoutubePlayer.Players['"+playerId+"']._delegateErrorEvent");
         panel.adjustRatio(panel.getWidth(), panel.getHeight());
         panel.fireEvent('ready', panel, player);
     }
