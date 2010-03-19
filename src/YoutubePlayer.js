@@ -146,7 +146,7 @@ Ext.ux.YoutubePlayer = Ext.extend(Ext.FlashComponent, {
         });
 
         Ext.applyIf(this, {
-            url       : "http://gdata.youtube.com/apiplayer?key=" +
+            url       : "http://www.youtube.com/apiplayer?key=" +
                         this.developerKey + "&enablejsapi=1&playerapiid="+
                         this.playerId,
             start     : false,
