@@ -598,7 +598,6 @@ Ext.ux.YoutubePlayer = Ext.extend(Ext.FlashComponent, {
 
 // create a sequence if onYouTubePlayerReady is already available
 var _onYouTubePlayerReady = function(playerId) {
-    console.log(playerId);
     var panel = Ext.ux.YoutubePlayer.Players[playerId];
     if (panel) {
         var player = document.getElementById(playerId);
