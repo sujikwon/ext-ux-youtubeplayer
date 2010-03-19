@@ -141,7 +141,7 @@ Ext.ux.YoutubePlayer = Ext.extend(Ext.FlashComponent, {
 
         Ext.applyIf(this, {
             url       : "http://www.youtube.com/apiplayer?"
-                        +"&enablejsapi=1&playerapiid="+
+                        +"&enablejsapi=1&version=3&playerapiid="+
                         this.playerId,
             start     : false,
             controls  : false,
@@ -598,6 +598,7 @@ Ext.ux.YoutubePlayer = Ext.extend(Ext.FlashComponent, {
 
 // create a sequence if onYouTubePlayerReady is already available
 var _onYouTubePlayerReady = function(playerId) {
+    console.log(playerId);
     var panel = Ext.ux.YoutubePlayer.Players[playerId];
     if (panel) {
         var player = document.getElementById(playerId);
