@@ -1,11 +1,11 @@
 @echo off
-echo -----------------------------------------------------
-echo          Ext.ux.YoutubePlayer Build Tool
-echo  (c) 2009 Thorsten Suckow-Homberg ts@siteartwork.de
-echo -----------------------------------------------------
+echo -------------------------------------------------------------------
+echo                  Ext.ux.YoutubePlayer Build Tool
+echo  (c) 2009-2012 Thorsten Suckow-Homberg thorsten@suckow-homberg.de
+echo -------------------------------------------------------------------
 echo  Using yuicompressor:
 echo  http://developer.yahoo.com/yui/compressor/
-echo -----------------------------------------------------
+echo -------------------------------------------------------------------
 echo.
 
 if "%1"=="" goto help
